@@ -1,11 +1,11 @@
 import { Hono } from "hono";
-import { searchDbQuerySchema, searchDbUpsertSchema } from "../schemas/search-db";
+import { querySchema, upsertSchema } from "../schemas/query";
 import { searchDocuments, upsertDocument } from "../services/search-store";
 
-export const searchDbRoute = new Hono();
+export const queryRoute = new Hono();
 
-searchDbRoute.post("/search-db/upsert", async (c) => {
-  const parsed = searchDbUpsertSchema.safeParse(await c.req.json());
+queryRoute.post("/upsert", async (c) => {
+  const parsed = upsertSchema.safeParse(await c.req.json());
 
   if (!parsed.success) {
     return c.json({ error: parsed.error.issues[0].message }, 400);
@@ -22,8 +22,8 @@ searchDbRoute.post("/search-db/upsert", async (c) => {
   return c.json({ id, success: true });
 });
 
-searchDbRoute.post("/search-db/query", async (c) => {
-  const parsed = searchDbQuerySchema.safeParse(await c.req.json());
+queryRoute.post("/query", async (c) => {
+  const parsed = querySchema.safeParse(await c.req.json());
 
   if (!parsed.success) {
     return c.json({ error: parsed.error.issues[0].message }, 400);

@@ -15,7 +15,7 @@ function getIndex(): Index {
 export async function upsertVector(
   id: string,
   vector: number[],
-  metadata: Record<string, unknown>
+  metadata: Record<string, unknown>,
 ): Promise<void> {
   await getIndex().upsert({ id, vector, metadata });
 }
@@ -26,10 +26,7 @@ export interface VectorQueryResult {
   metadata?: Record<string, unknown>;
 }
 
-export async function queryVector(
-  vector: number[],
-  topK: number
-): Promise<VectorQueryResult[]> {
+export async function queryVector(vector: number[], topK: number): Promise<VectorQueryResult[]> {
   const results = await getIndex().query({
     vector,
     topK,

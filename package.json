@@ -8,6 +8,7 @@
     "format:check": "oxfmt --check"
   },
   "dependencies": {
+    "@upstash/search": "^0.1.7",
     "@upstash/vector": "^1.2.3",
     "openai": "^6.45.0",
     "zod": "^4.4.3"

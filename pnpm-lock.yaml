@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@upstash/search':
+        specifier: ^0.1.7
+        version: 0.1.7
       '@upstash/vector':
         specifier: ^1.2.3
         version: 1.2.3
@@ -751,6 +754,9 @@ packages:
 
   '@types/node@26.1.0':
     resolution: {integrity: sha512-O0A1G3xPGy4w7AgQdAQYUlQ+BKk2Oovw8eRpofyp5KdBZULnbe+WqaOVNrm705SHphCiG4XHsACrSmPu1f+Kgw==}
+
+  '@upstash/search@0.1.7':
+    resolution: {integrity: sha512-rgJ52TP0eUPLFo4K6TZtiC7qICbJnEwkT+TqaDI1vN8/Hk6qidgNC9dpnUUXCiqfwogty1rlSyBhYfk6PRgXjA==}
 
   '@upstash/vector@1.2.3':
     resolution: {integrity: sha512-yXsWKeuHNYyH72BcSZd3bV5ZD5MybAoTvKxkMaeV2UzuGfNzbHBVh5eO+ysTWTFAf8I9XcOueF4tZfAGjCa4Iw==}
@@ -1543,6 +1549,10 @@ snapshots:
   '@types/node@26.1.0':
     dependencies:
       undici-types: 8.3.0
+
+  '@upstash/search@0.1.7':
+    dependencies:
+      '@upstash/vector': 1.2.3
 
   '@upstash/vector@1.2.3': {}
 

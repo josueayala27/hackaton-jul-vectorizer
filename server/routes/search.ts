@@ -28,11 +28,13 @@ searchRoute.post("/search", async (c) => {
     return c.json({ error: "failed to query vector store" }, 502);
   }
 
-  return c.json({
-    query,
-    results: matches.map(({ id, score, metadata }) => {
-      const { text, ...rest } = metadata ?? {};
-      return { id, score, text, metadata: rest };
-    }),
-  });
+  return c.json(matches)
+
+  // return c.json({
+  //   query,
+  //   results: matches.map(({ id, score, metadata }) => {
+  //     const { text, ...rest } = metadata ?? {};
+  //     return { id, score, text, metadata: rest };
+  //   }),
+  // });
 });

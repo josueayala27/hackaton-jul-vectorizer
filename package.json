@@ -2,15 +2,21 @@
   "type": "module",
   "scripts": {
     "build": "nitro build",
-    "dev": "nitro dev"
+    "dev": "nitro dev",
+    "lint": "oxlint",
+    "format": "oxfmt --write",
+    "format:check": "oxfmt --check"
   },
   "devDependencies": {
     "hono": "^4.12.9",
     "nitro": "latest",
+    "oxfmt": "^0.57.0",
+    "oxlint": "^1.72.0",
     "wrangler": "^4.107.0"
   },
   "dependencies": {
     "@upstash/vector": "^1.2.3",
+    "openai": "^6.45.0",
     "zod": "^4.4.3"
   }
 }

@@ -1,26 +1,16 @@
-const OPENAI_EMBEDDINGS_URL = "https://api.openai.com/v1/embeddings";
-const EMBEDDING_MODEL = "text-embedding-3-small";
+import OpenAI from "openai";
+import process from "node:process";
 
 export async function embedText(text: string): Promise<number[]> {
-  const response = await fetch(OPENAI_EMBEDDINGS_URL, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
-    },
-    body: JSON.stringify({
-      model: EMBEDDING_MODEL,
-      input: text,
-    }),
+  const client = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+
+  const embedding = await client.embeddings.create({
+    model: "text-embedding-3-small",
+    input: text,
+    encoding_format: "float",
   });
 
-  if (!response.ok) {
-    throw new Error(`OpenAI embeddings request failed: ${response.status}`);
-  }
+  console.log(embedding);
 
-  const body = (await response.json()) as {
-    data: { embedding: number[] }[];
-  };
-
-  return body.data[0].embedding;
+  return embedding.data[0].embedding;
 }

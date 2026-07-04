@@ -6,9 +6,11 @@
   },
   "devDependencies": {
     "hono": "^4.12.9",
-    "nitro": "latest"
+    "nitro": "latest",
+    "wrangler": "^4.107.0"
   },
   "dependencies": {
-    "@upstash/vector": "^1.2.3"
+    "@upstash/vector": "^1.2.3",
+    "zod": "^4.4.3"
   }
 }

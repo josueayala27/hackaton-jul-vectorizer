@@ -7,6 +7,10 @@ settings:
 importers:
 
   .:
+    dependencies:
+      '@upstash/vector':
+        specifier: ^1.2.3
+        version: 1.2.3
     devDependencies:
       hono:
         specifier: ^4.12.9
@@ -129,6 +133,9 @@ packages:
 
   '@tybys/wasm-util@0.10.3':
     resolution: {integrity: sha512-F3fo1MYrRJYL3zER0OUOmkutjr1Vp23m7OsSgp7nq4SP6OqX6C/56XFIPAl5bt3zaBRjmW7SGz3u/6LwFpYcOg==}
+
+  '@upstash/vector@1.2.3':
+    resolution: {integrity: sha512-yXsWKeuHNYyH72BcSZd3bV5ZD5MybAoTvKxkMaeV2UzuGfNzbHBVh5eO+ysTWTFAf8I9XcOueF4tZfAGjCa4Iw==}
 
   consola@3.4.2:
     resolution: {integrity: sha512-5IKcdX0nnYavi6G7TtOhwkYzyjfJlatbjMjuLSfE2kYT5pMDOilZ4OvMhi637CcDICTmz3wARPoyhqyX1Y+XvA==}
@@ -427,6 +434,8 @@ snapshots:
     dependencies:
       tslib: 2.8.1
     optional: true
+
+  '@upstash/vector@1.2.3': {}
 
   consola@3.4.2: {}
 

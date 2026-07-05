@@ -29,11 +29,16 @@ queryRoute.post("/query", async (c) => {
     return c.json({ error: parsed.error.issues[0].message }, 400);
   }
 
-  const { index, query, limit, filter } = parsed.data;
+  const { index, query, limit, filter, reranking, semanticWeight, boostEngagement } = parsed.data;
 
   let results: Awaited<ReturnType<typeof searchDocuments>>;
   try {
-    results = await searchDocuments(index, query, limit, filter);
+    results = await searchDocuments(index, query, limit, {
+      filter,
+      reranking,
+      semanticWeight,
+      boostEngagement,
+    });
   } catch {
     return c.json({ error: "failed to query search database" }, 502);
   }

@@ -14,6 +14,9 @@ export const querySchema = z.object({
   query: z.string().min(1),
   limit: z.number().int().min(1).max(20).optional().default(5),
   filter: z.string().optional(),
+  reranking: z.boolean().optional().default(false),
+  semanticWeight: z.number().min(0).max(1).optional(),
+  boostEngagement: z.boolean().optional().default(true),
 });
 
 export type QueryRequest = z.infer<typeof querySchema>;
